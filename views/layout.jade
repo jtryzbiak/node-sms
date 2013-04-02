@@ -1,0 +1,20 @@
+doctype 5
+html
+  head
+    
+    link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+    link(rel='stylesheet', href='/stylesheets/app.css')
+
+  body
+
+    div.navbar.navbar-inverse.navbar-fixed-top
+      div.navbar-inner
+        div.container
+          h4.pull-left Node SMS
+          h4.pull-right Phone number: #{phone_number}
+
+    div.container-narrow
+      block content
+
+    script(type='text/javascript', src='/javascripts/vendor/require.js', data-main='/javascripts/main')
+    block scripts

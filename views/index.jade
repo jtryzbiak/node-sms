@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  section#app.container
+    
+    div#sendMessage.send-message
+      h3 Send a message
+      input.input-block-level(type='text', placeholder='phone number', name='phoneNumber')
+      textarea.input-block-level(name='message', placeholder='message')
+      button.btn.btn-primary(type='submit') Send
+
+    div
+      h1.lead Conversations
+      hr
+      ul#conversations
+        li.well 
+          div.clearfix
+            h5.pull-left Some user
+            h5.pull-right Yesterday
+          div.conversation-message
+            p.lead
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sem est, placerat eget mattis eu, accumsan eu nisl. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos.
+
+
+          
+
+
