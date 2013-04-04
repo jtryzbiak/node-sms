@@ -13,13 +13,13 @@ block content
       h1.lead Conversations
       hr
       ul#conversations
-        li.well 
-          div.clearfix
-            h5.pull-left Some user
-            h5.pull-right Yesterday
-          div.conversation-message
-            p.lead
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sem est, placerat eget mattis eu, accumsan eu nisl. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos.
+       
+block bootstrapData
+  script(type='text/javascript')
+    var bootstrapData = {
+      conversations:!{JSON.stringify(conversations)}
+    };
+
 
 
           
