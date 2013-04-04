@@ -1,7 +1,8 @@
 requirejs.config({
-  baseUrl: '../javascripts',
+  baseUrl: '/javascripts',
   paths: {
     'jquery': 'http://code.jquery.com/jquery-1.9.1.min',
+    'handlebars' : 'vendor/handlebars.runtime',
     'backbone': 'vendor/backbone-min',
     'stickit': 'vendor/backbone.stickit.min',
     'underscore' : 'vendor/underscore-min'
@@ -19,15 +20,18 @@ requirejs.config({
     },
     'stickit' : {
       deps: ['backbone']
+    },
+    'handlebars' : {
+      exports: 'Handlebars'
     }
   }
 });
 
-define(['jquery', 'app/app-view'], function($, AppView) {
+define(['jquery', 'app/app-view'], function($, App) {
  
   $(function(){
-    var appView = new AppView({el: $('#app')});
-    appView.render();
+    var app = new App({el: $('#app')});
+    app.render();
   });
 
 });

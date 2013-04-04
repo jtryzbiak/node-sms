@@ -1,4 +1,5 @@
-define(['jquery', 'backbone', 'app/models/send-message', 'app/views/send-message'], function($, Backbone, SendMessageModel, SendMessageView) {
+define(['jquery', 'backbone', 'app/models/send-message', 'app/views/send-message']
+  ,function($, Backbone, SendMessageModel, SendMessageView) {
 
   var AppChrome = Backbone.View.extend({
     createEvents: function() {
