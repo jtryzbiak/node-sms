@@ -20,7 +20,6 @@ define(['jquery', 'backbone', 'handlebars', 'app/models/conversation'], function
       this.$el.append(conversation.render().el); 
     },
     addAll: function(){
-      console.log("im here")
       this.collection.forEach(this.addOne, this);
     },
     render: function() {

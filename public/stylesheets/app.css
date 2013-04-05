@@ -18,6 +18,8 @@ body {
 
 ul#conversations {
   list-style-type: none;
+  margin: 0;
+  padding: 0
 }
 
 .conversation-message {

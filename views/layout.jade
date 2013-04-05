@@ -6,15 +6,7 @@ html
     link(rel='stylesheet', href='/stylesheets/app.css')
 
   body
-
-    div.navbar.navbar-inverse.navbar-fixed-top
-      div.navbar-inner
-        div.container
-          h4.pull-left Node SMS
-          h4.pull-right Phone number: #{phone_number}
-
-    div.container-narrow
-      block content
+    block content
 
     block bootstrapData
     

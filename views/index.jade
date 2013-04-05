@@ -1,18 +1,25 @@
 extends layout
 
 block content
-  section#app.container
-    
-    div#sendMessage.send-message
-      h3 Send a message
-      input.input-block-level(type='text', placeholder='phone number', name='phoneNumber')
-      textarea.input-block-level(name='message', placeholder='message')
-      button.btn.btn-primary(type='submit') Send
+  div.navbar.navbar-inverse.navbar-fixed-top
+      div.navbar-inner
+        div.container
+          h4.pull-left Node SMS
+          h4.pull-right Phone number: #{phoneNumber}
 
-    div
-      h1.lead Conversations
-      hr
-      ul#conversations
+    div.container-narrow
+      section#app.container
+    
+        div#sendMessage.send-message
+          h3 Send a message
+          input.input-block-level(type='text', placeholder='phone number', name='phoneNumber')
+          textarea.input-block-level(name='message', placeholder='message')
+          button.btn.btn-primary(type='submit') Send
+
+        div
+          h1.lead Conversations
+          hr
+          ul#conversations
        
 block bootstrapData
   script(type='text/javascript')
