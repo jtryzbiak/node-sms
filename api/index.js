@@ -1,4 +1,4 @@
-var indexHandler = function() {
+module.exports = function() {
 
   var getConversations,
       getUserPhoneNumber,
@@ -49,9 +49,4 @@ var indexHandler = function() {
   return {
     execute: execute
   }
-
 }();
-
-module.exports = {
-  execute: indexHandler.execute
-};

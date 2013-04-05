@@ -1,4 +1,4 @@
-var sendMessageHandler = function(){
+module.exports = function(){
 
   var execute,
       sendMessage;
@@ -25,8 +25,3 @@ var sendMessageHandler = function(){
   };
 
 }();
-
-module.exports = {
-  execute: sendMessageHandler.execute
-};
-
