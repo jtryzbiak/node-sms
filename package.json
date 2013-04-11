@@ -9,7 +9,10 @@
     "express": "3.1.0",
     "jade": "*",
     "handlebars" : "*",
-    "mongodb": ">=1.1.11",
-    "mongoose": ">=3.3.1"
+    "mongodb": ">= 1.1.11",
+    "mongoose": ">= 3.3.1",
+    "passport" : ">= 0.0.0",
+    "passport-local" : ">= 0.0.0",
+    "underscore" : "*"
   }
 }

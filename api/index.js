@@ -1,49 +1,58 @@
 module.exports = function() {
 
+  var mongoose = require('mongoose'),
+      User = mongoose.model('User'),
+      Conversation = mongoose.model('Conversation');
+
+  // private methods
   var getConversations,
       getUserPhoneNumber,
       execute;
 
   getConversations = function(data, next) {
-    data.conversations = [
-      {
-        id: 1,
-        conversationWith: '111-222-3333',
-        sentBy: '111-222-3333',
-        timeStamp: new Date(2013, 03, 29),
-        body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sem est, placerat eget mattis eu, accumsan eu nisl. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos.'
-      },
-      {
-        id: 2,
-        conversationWith: '222-333-4444',
-        sentBy: '555-555-5555',
-        timeStamp: new Date(2013, 04, 03),
-        body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sem est, placerat eget mattis eu, accumsan eu nisl.'
-      }
-    ];
 
-    return next();
+    Conversation.list({
+      owner: data.currentUser._id
+    }, 
+    function(err, conversations) {
+      data.conversations = [];
+
+      conversations.forEach(function(conversation){
+        data.conversations.push({
+          conversationWith : conversation.conversationWith,
+          timeStamp : conversation.messages[0].created,
+          body : conversation.messages[0].body
+        });
+      });
+
+      return next();
+    });
   };
 
-  getUserPhoneNumber = function (request, data, next) {
-    data.phoneNumber = "555-555-5555";
-    return next(data);
+  getUser = function (request, data, next) {
+    User.findOne({'email' : 'testuser@foo.com'}, function(err, obj) {
+
+        data.phoneNumber = obj.phone_number;
+        data.currentUser = obj || {};
+        return next();
+    });
   };
   
   execute = function(req, res) {
     var data = {},
-        afterGetUserPhoneNumber,
+        afterGetUser,
         afterGetConversations;
 
     afterGetConversations = function() {
       res.render('index', data);
+      return;
     };
 
-    afterGetUserPhoneNumber = function() {
+    afterGetUser = function() {
         return getConversations(data, afterGetConversations);
     };
 
-    return getUserPhoneNumber(req, data, afterGetUserPhoneNumber);
+    return getUser(req, data, afterGetUser);
   };
 
   return {

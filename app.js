@@ -1,5 +1,11 @@
 var express = require('express')
-  , http = require('http');
+  , fs = require('fs');
+
+process.env.NODE_ENV =  process.env.NODE_ENV || 'dev';
+
+fs.readdirSync('./models').forEach(function (file) {
+  require('./models/' + file);
+});
 
 var app = express();
 
@@ -9,6 +15,6 @@ require('./core/config')(app, express);
 // routes
 require('./core/routes')(app);
 
-http.createServer(app).listen(app.get('port'), function(){
-  console.log("Express server listening on port " + app.get('port'));
-});
+var port = process.env.PORT || 3000;
+app.listen(port);
+console.log("Express server listening on port " + port);
