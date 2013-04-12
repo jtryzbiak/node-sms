@@ -41,3 +41,20 @@ db.conversations.insert({
     }
   ]
 });
+
+db.conversations.insert({
+  "owner" : userId,
+  "conversationWith" : '555-333-4444',
+  "messages" : [
+    {
+      "to" : '555-333-4444',
+      "from" : '111-222-3333',
+      "body" : 'Test User: Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+    },
+    {
+      "to" : '111-222-3333',
+      "from" : '555-333-44444',
+      "body" : 'External User: Pellentesque pretium turpis a tellus venenatis eget tincidunt arcu tristique. Nam quis tortor sem. Cras pulvinar sollicitudin.'
+    }
+  ]
+});

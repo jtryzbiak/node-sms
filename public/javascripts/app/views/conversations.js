@@ -3,6 +3,12 @@ define(['jquery', 'backbone', 'handlebars', 'app/models/conversation'], function
   var Conversation = Backbone.View.extend({
     tagName: 'li',
     className: 'well',
+    events: {
+      'click' : 'loadConversation'
+    },
+    loadConversation : function(){
+      console.log(this.model.attributes);
+    },
     render: function(){
       var template = Handlebars.templates["conversation"];
       this.$el.html(template(this.model.attributes));

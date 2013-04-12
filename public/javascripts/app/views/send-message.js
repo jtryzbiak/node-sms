@@ -18,7 +18,7 @@ define(['jquery', 'backbone', 'stickit'], function($, Backbone) {
       });
     },
     bindings: {
-      '[name="phoneNumber"]': 'phoneNumber',
+      '[name="messageTo"]': 'messageTo',
       '[name="message"]' : 'message'
     },
     render: function(){

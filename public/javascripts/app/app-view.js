@@ -25,7 +25,11 @@ function(
     },
     createSubViews: function(){
         // send message view
-        var sendMessageModel = new SendMessageModel();
+        var sendMessageModel = new SendMessageModel({
+          ownerId : bootstrapData.user._id,
+          ownerPhoneNumber : bootstrapData.user.phone_number
+        });
+        
         this.sendMessageView = new SendMessageView({
           model: sendMessageModel, 
           el: this.$el.find('#sendMessage'),
